@@ -1,280 +1,201 @@
 <!doctype html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Catálogo de Ropa - Responsive</title>
-  <style>
-    :root{
-      --accent:#ff6b6b;
-      --dark:#222;
-      --muted:#666;
-      --card-bg:#fff;
-      --glass: rgba(255,255,255,0.6);
-      --max-width:1200px;
-      --shadow: 0 6px 18px rgba(0,0,0,0.08);
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-
-    /* Reset-ish */
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{background:linear-gradient(180deg,#fafafa 0%, #f3f6fb 100%);color:var(--dark);-webkit-font-smoothing:antialiased}
-
-    /* Layout */
-    header{background:linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));backdrop-filter: blur(6px);position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(0,0,0,0.04)}
-    .nav-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem;gap:1rem}
-    .brand{display:flex;align-items:center;gap:0.6rem;font-weight:700}
-    .brand .logo{width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#fcb045);display:grid;place-items:center;color:#fff;font-weight:800}
-    nav ul{list-style:none;display:flex;gap:1rem;align-items:center}
-    nav a{display:inline-block;padding:0.45rem 0.6rem;border-radius:8px;color:var(--dark);text-decoration:none;font-weight:600}
-    nav a:hover{background:rgba(0,0,0,0.03)}
-
-    .cta{padding:0.5rem 0.85rem;background:var(--accent);color:white;border-radius:10px;text-decoration:none;font-weight:700}
-
-    /* Mobile menu */
-    .hamburger{display:none;border:0;background:none;font-size:1.25rem}
-    .mobile-menu{display:none}
-
-    main{max-width:var(--max-width);margin:1.25rem auto;padding:0 1rem}
-
-    .hero{display:grid;grid-template-columns:1fr 360px;gap:1rem;align-items:center;margin-bottom:1rem}
-    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.75));border-radius:14px;padding:1.25rem;box-shadow:var(--shadow)}
-    .hero h1{font-size:1.6rem;margin-bottom:0.35rem}
-    .hero p{color:var(--muted);margin-bottom:0.75rem}
-
-    .filters{display:flex;gap:.5rem;flex-wrap:wrap}
-    .filters select,.filters input{padding:.5rem .7rem;border-radius:10px;border:1px solid #e6e9ee}
-
-    /* Products grid */
-    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-    .card{background:var(--card-bg);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
-    .card img{width:100%;height:220px;object-fit:cover}
-    .card-body{padding:0.9rem;display:flex;flex-direction:column;gap:0.6rem}
-    .card h3{font-size:1rem}
-    .price{font-weight:800}
-    .muted{color:var(--muted);font-size:.9rem}
-    .actions{margin-top:auto;display:flex;gap:.5rem}
-    .btn{flex:1;padding:.5rem;border-radius:10px;border:1px solid rgba(0,0,0,0.06);background:transparent;cursor:pointer}
-    .btn-primary{background:var(--accent);color:white;border:none}
-
-    /* Who we are */
-    .about{display:grid;grid-template-columns:1fr 320px;gap:1rem;align-items:start}
-    .card--padded{padding:1rem}
-
-    /* Footer */
-    footer{max-width:var(--max-width);margin:1.5rem auto;padding:1rem;border-top:1px solid rgba(0,0,0,0.04);color:var(--muted)}
-
-    /* Responsive rules */
-    @media (max-width:1024px){
-      .products{grid-template-columns:repeat(3,1fr)}
-      .hero{grid-template-columns:1fr}
-      .about{grid-template-columns:1fr}
-    }
-    @media (max-width:768px){
-      .products{grid-template-columns:repeat(2,1fr)}
-      nav ul{display:none}
-      .hamburger{display:block}
-      .mobile-menu{display:block;background:linear-gradient(180deg,#fff,#fff);position:absolute;left:0;right:0;top:64px;padding:0.75rem;border-bottom:1px solid rgba(0,0,0,0.04);box-shadow:var(--shadow);display:none}
-      .mobile-menu.open{display:block}
-      .hero img{display:none}
-      .brand .logo{width:40px;height:40px}
-    }
-    @media (max-width:480px){
-      .products{grid-template-columns:1fr}
-      .card img{height:200px}
-      .hero h1{font-size:1.35rem}
-    }
-
-    /* small helpers */
-    .badge{display:inline-block;padding:.25rem .45rem;border-radius:999px;background:rgba(0,0,0,0.06);font-weight:700}
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Catálogo de Ropa - Responsive</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./general.css">
 </head>
+
 <body>
-  <header>
-    <div class="nav-inner">
-      <div class="brand">
-        <div class="logo">R</div>
-        <div>
-          <div style="font-size:0.95rem">Ropa & Co</div>
-          <div style="font-size:0.75rem;color:var(--muted)">Catálogo responsive</div>
-        </div>
-      </div>
-
-      <nav aria-label="Principal">
-        <button class="hamburger" aria-expanded="false" aria-controls="mobile-menu">☰</button>
-        <ul>
-          <li><a href="#home">Inicio</a></li>
-          <li><a href="#ropa">Ropa</a></li>
-          <li><a href="#quienes">Quiénes somos</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-
-      <a class="cta" href="#ropa">Ver catálogo</a>
-    </div>
-
-    <div id="mobile-menu" class="mobile-menu" role="menu">
-      <a href="#home">Inicio</a> &nbsp; • &nbsp; <a href="#ropa">Ropa</a> &nbsp; • &nbsp; <a href="#quienes">Quiénes somos</a> &nbsp; • &nbsp; <a href="#contacto">Contacto</a>
-    </div>
-  </header>
-
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-card">
-        <h1>Catálogo de temporada</h1>
-        <p>Descubre nuestras últimas colecciones pensadas para laptop, tablet y móvil. Diseño responsivo y experiencia fluida en cualquier dispositivo.</p>
-
-        <div class="filters">
-          <select aria-label="Categoría">
-            <option>Todo</option>
-            <option>Hombre</option>
-            <option>Mujer</option>
-            <option>Niños</option>
-          </select>
-          <select aria-label="Talla">
-            <option>Todas las tallas</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-          </select>
-          <input placeholder="Buscar..." aria-label="Buscar productos">
-        </div>
-
-        <div style="margin-top:1rem;display:flex;gap:.5rem">
-          <a class="btn btn-primary" href="#ropa">Comprar ahora</a>
-          <button class="btn">Ver ofertas</button>
-        </div>
-      </div>
-
-      <div style="display:flex;flex-direction:column;gap:1rem">
-        <div class="hero-card card--padded">
-          <strong class="badge">Nuevo</strong>
-          <h3 style="margin-top:.6rem">Colección Primavera</h3>
-          <p class="muted">Prendas frescas y colores vivos para la nueva temporada.</p>
-        </div>
-
-        <div class="hero-card card--padded">
-          <h4>Envío gratis a partir de S/ 199</h4>
-          <p class="muted">Devoluciones en 30 días y pago seguro.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="ropa">
-      <h2 style="margin:0 0 .75rem 0">Ropa destacada</h2>
-      <div class="products" aria-live="polite">
-        <!-- Repeatable product card -->
-        <article class="card">
-          <img src="https://picsum.photos/seed/jean/800/600" alt="Chaqueta denim">
-          <div class="card-body">
-            <h3>Chaqueta denim</h3>
-            <div class="muted">Chaqueta clásica - Unisex</div>
-            <div class="price">S/ 149</div>
-            <div class="actions">
-              <button class="btn">Detalles</button>
-              <button class="btn btn-primary">Añadir</button>
+    <header>
+        <div class="nav-inner">
+            <div class="brand">
+                <div class="logo">R</div>
+                <div>
+                    <div style="font-size:0.95rem">Ropa & Co</div>
+                    <div style="font-size:0.75rem;color:var(--muted)">Catálogo responsive</div>
+                </div>
             </div>
-          </div>
-        </article>
 
-        <article class="card">
-          <img src="https://picsum.photos/seed/vestido/800/600" alt="Vestido floral">
-          <div class="card-body">
-            <h3>Vestido floral</h3>
-            <div class="muted">Vestido midi</div>
-            <div class="price">S/ 129</div>
-            <div class="actions">
-              <button class="btn">Detalles</button>
-              <button class="btn btn-primary">Añadir</button>
-            </div>
-          </div>
-        </article>
+            <nav aria-label="Principal">
+                <button class="hamburger" aria-expanded="false" aria-controls="mobile-menu">☰</button>
+                <ul>
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./ropa.html">Ropa</a></li>
+                    <li><a href="./quienes.html">Quiénes somos</a></li>
+                    <li><a href="./contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
 
-        <article class="card">
-          <img src="https://picsum.photos/seed/hoodie/800/600" alt="Sudadera con capucha">
-          <div class="card-body">
-            <h3>Sudadera con capucha</h3>
-            <div class="muted">Algodón orgánico</div>
-            <div class="price">S/ 99</div>
-            <div class="actions">
-              <button class="btn">Detalles</button>
-              <button class="btn btn-primary">Añadir</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="https://picsum.photos/seed/pantalon/800/600" alt="Pantalón chino">
-          <div class="card-body">
-            <h3>Pantalón chino</h3>
-            <div class="muted">Corte slim</div>
-            <div class="price">S/ 119</div>
-            <div class="actions">
-              <button class="btn">Detalles</button>
-              <button class="btn btn-primary">Añadir</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Puedes duplicar los cards para poblar más -->
-      </div>
-    </section>
-
-    <section id="quienes" style="margin-top:1.25rem">
-      <h2>Quiénes somos</h2>
-      <div class="about" style="margin-top:.75rem">
-        <div class="hero-card">
-          <h3>Nuestra misión</h3>
-          <p class="muted">Somos una marca local dedicada a crear ropa cómoda y con diseño, cuidando materiales y procesos.</p>
-          <ul style="margin-top:.5rem;color:var(--muted)">
-            <li>Materiales sostenibles</li>
-            <li>Envíos nacionales</li>
-            <li>Política de devolución clara</li>
-          </ul>
+            <a class="cta" href="./ropa.html">Ver catálogo</a>
         </div>
-        <aside class="hero-card card--padded">
-          <h4>Contacto</h4>
-          <p class="muted">hola@ropayco.pe</p>
-          <p class="muted">Lima, Perú</p>
-        </aside>
-      </div>
-    </section>
 
-    <section id="contacto" style="margin-top:1.25rem">
-      <h2>Contacto</h2>
-      <div style="margin-top:.75rem" class="hero-card">
-        <form onsubmit="event.preventDefault();alert('Formulario demo — aquí puedes integrar tu backend')">
-          <div style="display:flex;gap:.5rem;flex-wrap:wrap">
-            <input placeholder="Nombre" required style="flex:1;padding:.6rem;border-radius:8px;border:1px solid #e6e9ee">
-            <input placeholder="Correo" type="email" required style="flex:1;padding:.6rem;border-radius:8px;border:1px solid #e6e9ee">
-          </div>
-          <textarea placeholder="Mensaje" required style="width:100%;margin-top:.6rem;padding:.6rem;border-radius:8px;border:1px solid #e6e9ee"></textarea>
-          <div style="display:flex;gap:.5rem;margin-top:.6rem">
-            <button class="btn">Limpiar</button>
-            <button class="btn btn-primary" type="submit">Enviar</button>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
+        <div id="mobile-menu" class="mobile-menu" role="menu">
+            <a href="./index.html">Inicio</a> &nbsp; • &nbsp; <a href="./ropa.html">Ropa</a> &nbsp; • &nbsp; <a
+                href="./quienes.html">Quiénes somos</a> &nbsp; • &nbsp; <a href="./contacto.html">Contacto</a>
+        </div>
+    </header>
 
-  <footer>
-    <div style="max-width:var(--max-width);margin:0 auto;padding:0 1rem;display:flex;justify-content:space-between;align-items:center">
-      <div>&copy; <strong>Ropa & Co</strong> - 2025</div>
-      <div class="muted">Diseño responsivo • Fácil de adaptar</div>
-    </div>
-  </footer>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-card">
+                <h1>Catálogo de temporada</h1>
+                <p>Descubre nuestras últimas colecciones pensadas para laptop, tablet y móvil. Diseño responsivo y
+                    experiencia fluida en cualquier dispositivo.</p>
 
-  <script>
-    // Mobile menu toggle
-    const burger = document.querySelector('.hamburger');
-    const mobile = document.getElementById('mobile-menu');
-    burger && burger.addEventListener('click', ()=>{
-      const opened = mobile.classList.toggle('open');
-      burger.setAttribute('aria-expanded', opened);
-    });
-  </script>
+                <div class="filters">
+                    <select aria-label="Categoría">
+                        <option>Todo</option>
+                        <option>Hombre</option>
+                        <option>Mujer</option>
+                        <option>Niños</option>
+                    </select>
+                    <select aria-label="Talla">
+                        <option>Todas las tallas</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
+                    <input placeholder="Buscar..." aria-label="Buscar productos">
+                </div>
+
+                <div style="margin-top:1rem;display:flex;gap:.5rem">
+                    <a class="btn btn-primary" href="#ropa">Comprar ahora</a>
+                    <button class="btn">Ver ofertas</button>
+                </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:1rem">
+                <div class="hero-card card--padded">
+                    <strong class="badge">Nuevo</strong>
+                    <h3 style="margin-top:.6rem">Colección Primavera</h3>
+                    <p class="muted">Prendas frescas y colores vivos para la nueva temporada.</p>
+                </div>
+
+                <div class="hero-card card--padded">
+                    <h4>Envío gratis a partir de S/ 199</h4>
+                    <p class="muted">Devoluciones en 30 días y pago seguro.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ropa">
+            <h2 style="margin:0 0 .75rem 0">Ropa destacada</h2>
+            <div class="products" aria-live="polite">
+                <!-- Repeatable product card -->
+                <article class="card">
+                    <img src="https://picsum.photos/seed/jean/800/600" alt="Chaqueta denim">
+                    <div class="card-body">
+                        <h3>Chaqueta denim</h3>
+                        <div class="muted">Chaqueta clásica - Unisex</div>
+                        <div class="price">S/ 149</div>
+                        <div class="actions">
+                            <button class="btn">Detalles</button>
+                            <button class="btn btn-primary">Añadir</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/vestido/800/600" alt="Vestido floral">
+                    <div class="card-body">
+                        <h3>Vestido floral</h3>
+                        <div class="muted">Vestido midi</div>
+                        <div class="price">S/ 129</div>
+                        <div class="actions">
+                            <button class="btn">Detalles</button>
+                            <button class="btn btn-primary">Añadir</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/hoodie/800/600" alt="Sudadera con capucha">
+                    <div class="card-body">
+                        <h3>Sudadera con capucha</h3>
+                        <div class="muted">Algodón orgánico</div>
+                        <div class="price">S/ 99</div>
+                        <div class="actions">
+                            <button class="btn">Detalles</button>
+                            <button class="btn btn-primary">Añadir</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/pantalon/800/600" alt="Pantalón chino">
+                    <div class="card-body">
+                        <h3>Pantalón chino</h3>
+                        <div class="muted">Corte slim</div>
+                        <div class="price">S/ 119</div>
+                        <div class="actions">
+                            <button class="btn">Detalles</button>
+                            <button class="btn btn-primary">Añadir</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Puedes duplicar los cards para poblar más -->
+            </div>
+        </section>
+
+        <section id="quienes" style="margin-top:1.25rem">
+            <h2>Quiénes somos</h2>
+            <div class="about" style="margin-top:.75rem">
+                <div class="hero-card">
+                    <h3>Nuestra misión</h3>
+                    <p class="muted">Somos una marca local dedicada a crear ropa cómoda y con diseño, cuidando
+                        materiales y procesos.</p>
+                    <ul style="margin-top:.5rem;color:var(--muted)">
+                        <p class="muted">
+                            Materiales sostenibles <br>
+                            Envíos nacionales <br>
+                            Política de devolución clara <br>
+                        </p>
+                    </ul>
+                </div>
+                <aside class="hero-card card--padded">
+                    <h4>Contacto</h4>
+                    <p class="muted">hola@ropayco.pe</p>
+                    <p class="muted">Lima, Perú</p>
+                </aside>
+            </div>
+        </section>
+
+        <section id="contacto" style="margin-top:1.25rem">
+            <h2>Contacto</h2>
+            <div style="margin-top:.75rem" class="hero-card">
+                <form onsubmit="event.preventDefault();alert('Formulario demo — aquí puedes integrar tu backend')">
+                    <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+                        <input placeholder="Nombre" required
+                            style="flex:1;padding:.6rem;border-radius:8px;border:1px solid #e6e9ee">
+                        <input placeholder="Correo" type="email" required
+                            style="flex:1;padding:.6rem;border-radius:8px;border:1px solid #e6e9ee">
+                    </div>
+                    <textarea placeholder="Mensaje" required
+                        style="width:100%;margin-top:.6rem;padding:.6rem;border-radius:8px;border:1px solid #e6e9ee"></textarea>
+                    <div style="display:flex;gap:.5rem;margin-top:.6rem">
+                        <button class="btn">Limpiar</button>
+                        <button class="btn btn-primary" type="submit">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div
+            style="max-width:var(--max-width);margin:0 auto;padding:0 1rem;display:flex;justify-content:space-between;align-items:center">
+            <div>&copy; <strong>Ropa & Co</strong> - 2025</div>
+            <div class="muted">Diseño responsivo • Fácil de adaptar</div>
+        </div>
+    </footer>
+
+    <script src="./js/javascript.js"></script>
 </body>
+
 </html>

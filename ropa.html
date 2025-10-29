@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ropa & Co - Catálogo</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./general.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav-inner">
+            <div class="brand">
+                <div class="logo">R</div>
+                <div>
+                    <div style="font-size:0.95rem">Ropa & Co</div>
+                    <div style="font-size:0.75rem;color:var(--muted)">Catálogo responsive</div>
+                </div>
+            </div>
+
+            <nav aria-label="Principal">
+                <button class="hamburger" aria-expanded="false" aria-controls="mobile-menu">☰</button>
+                <ul>
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./ropa.html">Ropa</a></li>
+                    <li><a href="./quienes.html">Quiénes somos</a></li>
+                    <li><a href="./contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <a class="cta" href="./ropa.html">Ver catálogo</a>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu" role="menu">
+            <a href="./index.html">Inicio</a> &nbsp; • &nbsp; <a href="./ropa.html">Ropa</a> &nbsp; • &nbsp; <a
+                href="./quienes.html">Quiénes somos</a> &nbsp; • &nbsp; <a href="./contacto.html">Contacto</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-card">
+                <h1>Catálogo de temporada</h1>
+                <p>Descubre nuestras últimas colecciones pensadas para laptop, tablet y móvil. Diseño responsivo y
+                    experiencia fluida en cualquier dispositivo.</p>
+
+                <div class="filters">
+                    <select aria-label="Categoría">
+                        <option>Todo</option>
+                        <option>Hombre</option>
+                        <option>Mujer</option>
+                        <option>Niños</option>
+                    </select>
+                    <select aria-label="Talla">
+                        <option>Todas las tallas</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                    </select>
+                    <input placeholder="Buscar..." aria-label="Buscar productos">
+                </div>
+
+                <div style="margin-top:1rem;display:flex;gap:.5rem">
+                    <a class="btn btn-primary" href="#ropa">Comprar ahora</a>
+                    <button class="btn">Ver ofertas</button>
+                </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:1rem">
+                <div class="hero-card card--padded">
+                    <strong class="badge">Nuevo</strong>
+                    <h3 style="margin-top:.6rem">Colección Primavera</h3>
+                    <p class="muted">Prendas frescas y colores vivos para la nueva temporada.</p>
+                </div>
+
+                <div class="hero-card card--padded">
+                    <h4>Envío gratis a partir de S/ 199</h4>
+                    <p class="muted">Devoluciones en 30 días y pago seguro.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="products">
+            <article class="card">
+                <img src="https://picsum.photos/seed/denim/400/300" alt="Chaqueta Denim">
+                <div class="card-body">
+                    <h3>Chaqueta Denim</h3>
+                    <p>Un clásico que nunca pasa de moda</p>
+                    <div class="price">S/ 149</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/floral/400/300" alt="Vestido Floral">
+                <div class="card-body">
+                    <h3>Vestido Floral</h3>
+                    <p>Ideal para primavera</p>
+                    <div class="price">S/ 129</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/hoodie/400/300" alt="Sudadera">
+                <div class="card-body">
+                    <h3>Sudadera con Capucha</h3>
+                    <p>Comodidad y estilo urbano</p>
+                    <div class="price">S/ 99</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/jacket/400/300" alt="Casaca de Cuero">
+                <div class="card-body">
+                    <h3>Casaca de Cuero</h3>
+                    <p>Perfecta para un look moderno</p>
+                    <div class="price">S/ 199</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/sneakers/400/300" alt="Zapatillas Urbanas">
+                <div class="card-body">
+                    <h3>Zapatillas Urbanas</h3>
+                    <p>Ligereza y comodidad al caminar</p>
+                    <div class="price">S/ 179</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/tshirt/400/300" alt="Polo Básico">
+                <div class="card-body">
+                    <h3>Polo Básico</h3>
+                    <p>Ideal para el uso diario</p>
+                    <div class="price">S/ 59</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/skirt/400/300" alt="Falda de Jean">
+                <div class="card-body">
+                    <h3>Falda de Jean</h3>
+                    <p>Casual y versátil para cualquier ocasión</p>
+                    <div class="price">S/ 89</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/sweater/400/300" alt="Suéter de Lana">
+                <div class="card-body">
+                    <h3>Suéter de Lana</h3>
+                    <p>Suavidad y abrigo para el invierno</p>
+                    <div class="price">S/ 139</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/jeans/400/300" alt="Jeans Ajustados">
+                <div class="card-body">
+                    <h3>Jeans Ajustados</h3>
+                    <p>Comodidad con un toque moderno</p>
+                    <div class="price">S/ 119</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/sandals/400/300" alt="Sandalias de Cuero">
+                <div class="card-body">
+                    <h3>Sandalias de Cuero</h3>
+                    <p>Estilo fresco y elegante</p>
+                    <div class="price">S/ 99</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/jogger/400/300" alt="Pantalón Jogger">
+                <div class="card-body">
+                    <h3>Pantalón Jogger</h3>
+                    <p>Perfecto para un look deportivo</p>
+                    <div class="price">S/ 109</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/coat/400/300" alt="Abrigo Largo">
+                <div class="card-body">
+                    <h3>Abrigo Largo</h3>
+                    <p>Elegancia y calidez para días fríos</p>
+                    <div class="price">S/ 229</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/beanie/400/300" alt="Gorro de Lana">
+                <div class="card-body">
+                    <h3>Gorro de Lana</h3>
+                    <p>Un toque cálido y moderno</p>
+                    <div class="price">S/ 49</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/scarf/400/300" alt="Bufanda de Algodón">
+                <div class="card-body">
+                    <h3>Bufanda de Algodón</h3>
+                    <p>Perfecta para complementar tu outfit</p>
+                    <div class="price">S/ 69</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/bag/400/300" alt="Bolso de Cuero">
+                <div class="card-body">
+                    <h3>Bolso de Cuero</h3>
+                    <p>Espacioso y elegante para el día a día</p>
+                    <div class="price">S/ 249</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/watch/400/300" alt="Reloj Clásico">
+                <div class="card-body">
+                    <h3>Reloj Clásico</h3>
+                    <p>Diseño minimalista y sofisticado</p>
+                    <div class="price">S/ 299</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/sunglasses/400/300" alt="Gafas de Sol">
+                <div class="card-body">
+                    <h3>Gafas de Sol</h3>
+                    <p>Protección y estilo en todo momento</p>
+                    <div class="price">S/ 159</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/hat/400/300" alt="Sombrero de Paja">
+                <div class="card-body">
+                    <h3>Sombrero de Paja</h3>
+                    <p>Ideal para días soleados</p>
+                    <div class="price">S/ 89</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/boots/400/300" alt="Botines de Cuero">
+                <div class="card-body">
+                    <h3>Botines de Cuero</h3>
+                    <p>Elegantes y cómodos para el invierno</p>
+                    <div class="price">S/ 189</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/sport/400/300" alt="Conjunto Deportivo">
+                <div class="card-body">
+                    <h3>Conjunto Deportivo</h3>
+                    <p>Ideal para entrenar con estilo</p>
+                    <div class="price">S/ 159</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/dress/400/300" alt="Vestido Elegante">
+                <div class="card-body">
+                    <h3>Vestido Elegante</h3>
+                    <p>Perfecto para eventos y ocasiones especiales</p>
+                    <div class="price">S/ 189</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/belt/400/300" alt="Cinturón de Cuero">
+                <div class="card-body">
+                    <h3>Cinturón de Cuero</h3>
+                    <p>Un accesorio esencial para tu estilo</p>
+                    <div class="price">S/ 79</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/jewel/400/300" alt="Collar de Plata">
+                <div class="card-body">
+                    <h3>Collar de Plata</h3>
+                    <p>Brillo y elegancia para cualquier ocasión</p>
+                    <div class="price">S/ 129</div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/coat2/400/300" alt="Parka Impermeable">
+                <div class="card-body">
+                    <h3>Parka Impermeable</h3>
+                    <p>Protección contra la lluvia con estilo</p>
+                    <div class="price">S/ 239</div>
+                </div>
+            </article>
+        </section>
+
+        <footer>
+            © 2025 Ropa & Co — Todos los derechos reservados
+        </footer>
+    </main>
+
+    <script src="./js/javascript.js"></script>
+</body>
+
+</html>
