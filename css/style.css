@@ -95,6 +95,75 @@ nav a:hover {
   background: var(--accent-dark);
 }
 
+/* --- Menú móvil --- */
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.97);
+  position: absolute;
+  top: 70px; /* debajo del header */
+  left: 0;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  text-align: center;
+  animation: slideDown 0.3s ease forwards;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 0.8rem;
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mobile-menu a:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* --- Animación --- */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  nav ul {
+    display: none; /* Oculta el menú normal */
+  }
+
+  .hamburger {
+    display: block; /* Muestra el botón */
+  }
+
+  .cta {
+    display: none; /* Oculta el botón principal si prefieres */
+  }
+
+  .mobile-menu.show {
+    display: flex; /* Activa el menú al hacer clic */
+  }
+}
+
 /* --- Hero --- */
 .hero {
   background: linear-gradient(120deg, #fff 0%, #ffe8e8 100%);
